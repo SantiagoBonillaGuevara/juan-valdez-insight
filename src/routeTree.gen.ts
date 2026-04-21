@@ -9,18 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as MarketsRouteImport } from './routes/markets'
 import { Route as FrameworkRouteImport } from './routes/framework'
 import { Route as DiagnosisRouteImport } from './routes/diagnosis'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
 import { Route as SolutionsCountryRouteImport } from './routes/solutions.$country'
 
-const SolutionsRoute = SolutionsRouteImport.update({
-  id: '/solutions',
-  path: '/solutions',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const MarketsRoute = MarketsRouteImport.update({
   id: '/markets',
   path: '/markets',
@@ -41,10 +36,15 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
+  id: '/solutions/',
+  path: '/solutions/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsCountryRoute = SolutionsCountryRouteImport.update({
-  id: '/$country',
-  path: '/$country',
-  getParentRoute: () => SolutionsRoute,
+  id: '/solutions/$country',
+  path: '/solutions/$country',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -52,16 +52,16 @@ export interface FileRoutesByFullPath {
   '/diagnosis': typeof DiagnosisRoute
   '/framework': typeof FrameworkRoute
   '/markets': typeof MarketsRoute
-  '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$country': typeof SolutionsCountryRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/diagnosis': typeof DiagnosisRoute
   '/framework': typeof FrameworkRoute
   '/markets': typeof MarketsRoute
-  '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$country': typeof SolutionsCountryRoute
+  '/solutions': typeof SolutionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,8 +69,8 @@ export interface FileRoutesById {
   '/diagnosis': typeof DiagnosisRoute
   '/framework': typeof FrameworkRoute
   '/markets': typeof MarketsRoute
-  '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/$country': typeof SolutionsCountryRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -79,24 +79,24 @@ export interface FileRouteTypes {
     | '/diagnosis'
     | '/framework'
     | '/markets'
-    | '/solutions'
     | '/solutions/$country'
+    | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/diagnosis'
     | '/framework'
     | '/markets'
-    | '/solutions'
     | '/solutions/$country'
+    | '/solutions'
   id:
     | '__root__'
     | '/'
     | '/diagnosis'
     | '/framework'
     | '/markets'
-    | '/solutions'
     | '/solutions/$country'
+    | '/solutions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -104,18 +104,12 @@ export interface RootRouteChildren {
   DiagnosisRoute: typeof DiagnosisRoute
   FrameworkRoute: typeof FrameworkRoute
   MarketsRoute: typeof MarketsRoute
-  SolutionsRoute: typeof SolutionsRouteWithChildren
+  SolutionsCountryRoute: typeof SolutionsCountryRoute
+  SolutionsIndexRoute: typeof SolutionsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/solutions': {
-      id: '/solutions'
-      path: '/solutions'
-      fullPath: '/solutions'
-      preLoaderRoute: typeof SolutionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/markets': {
       id: '/markets'
       path: '/markets'
@@ -144,35 +138,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/': {
+      id: '/solutions/'
+      path: '/solutions'
+      fullPath: '/solutions/'
+      preLoaderRoute: typeof SolutionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions/$country': {
       id: '/solutions/$country'
-      path: '/$country'
+      path: '/solutions/$country'
       fullPath: '/solutions/$country'
       preLoaderRoute: typeof SolutionsCountryRouteImport
-      parentRoute: typeof SolutionsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface SolutionsRouteChildren {
-  SolutionsCountryRoute: typeof SolutionsCountryRoute
-}
-
-const SolutionsRouteChildren: SolutionsRouteChildren = {
-  SolutionsCountryRoute: SolutionsCountryRoute,
-}
-
-const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
-  SolutionsRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DiagnosisRoute: DiagnosisRoute,
   FrameworkRoute: FrameworkRoute,
   MarketsRoute: MarketsRoute,
-  SolutionsRoute: SolutionsRouteWithChildren,
+  SolutionsCountryRoute: SolutionsCountryRoute,
+  SolutionsIndexRoute: SolutionsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

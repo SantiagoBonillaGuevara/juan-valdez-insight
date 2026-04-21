@@ -1,11 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import { feature } from "topojson-client";
 import { COUNTRIES, COUNTRY_ORDER, type CountryKey } from "@/data/countries";
 import worldTopology from "@/assets/world-countries-110m.json";
@@ -55,7 +50,9 @@ export function WorldMap() {
     const topology = worldTopology as TopologyObject;
     const countriesObject = topology.objects.countries as Parameters<typeof feature>[1];
     const fc = feature(topology as Parameters<typeof feature>[0], countriesObject);
-    return (fc.type === "FeatureCollection" ? fc : { type: "FeatureCollection", features: [] }) as GeoFeatureCollection;
+    return (
+      fc.type === "FeatureCollection" ? fc : { type: "FeatureCollection", features: [] }
+    ) as GeoFeatureCollection;
   }, []);
 
   const go = (key: CountryKey) => {
@@ -159,21 +156,12 @@ export function WorldMap() {
             <div className="text-xs uppercase tracking-[0.18em] text-accent">
               {COUNTRIES[hovered].flag} Target Market
             </div>
-            <div className="mt-1 font-display text-2xl text-primary">
-              {COUNTRIES[hovered].name}
-            </div>
-            <div className="mt-1 text-sm text-muted-foreground">
-              {COUNTRIES[hovered].tagline}
-            </div>
-            <div className="mt-2 text-xs font-semibold text-accent">
-              Click to view full strategy →
-            </div>
+            <div className="mt-1 font-display text-2xl text-primary">{COUNTRIES[hovered].name}</div>
+            <div className="mt-1 text-sm text-muted-foreground">{COUNTRIES[hovered].tagline}</div>
           </>
         ) : (
           <>
-            <div className="text-xs uppercase tracking-[0.18em] text-primary">
-              Interactive Map
-            </div>
+            <div className="text-xs uppercase tracking-[0.18em] text-primary">Interactive Map</div>
             <div className="mt-1 font-display text-xl text-foreground">
               5 Priority Markets · 2030
             </div>

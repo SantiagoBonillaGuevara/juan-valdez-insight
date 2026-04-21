@@ -3,7 +3,7 @@ import { PageShell } from "@/components/site-shell";
 import { WorldMap } from "@/components/world-map";
 import { COUNTRIES, COUNTRY_ORDER } from "@/data/countries";
 
-export const Route = createFileRoute("/solutions")({
+export const Route = createFileRoute("/solutions/")({
   head: () => ({
     meta: [
       { title: "5 Country Solutions · Juan Valdez IBCC" },
