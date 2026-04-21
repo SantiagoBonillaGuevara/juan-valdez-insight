@@ -7,10 +7,9 @@ import {
   Marker,
 } from "react-simple-maps";
 import { COUNTRIES, COUNTRY_ORDER, type CountryKey } from "@/data/countries";
+import geoUrl from "@/assets/world-countries-110m.json?url";
 
-// Public-domain world atlas (110m) — country borders as TopoJSON.
-const GEO_URL =
-  "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json";
+const GEO_URL = geoUrl;
 
 // ISO 3166-1 numeric codes used by world-atlas
 const ISO_TO_KEY: Record<string, CountryKey> = {
