@@ -1,0 +1,156 @@
+import { T as jsxRuntimeExports } from "./worker-entry-DOYnsI0b.js";
+import { P as PageShell } from "./site-shell-D5eWjPVz.js";
+import "node:events";
+import "node:async_hooks";
+import "node:stream/web";
+import "node:stream";
+import "./router-EyOYuvzQ.js";
+const cageGroups = [{
+  title: "Large Economies",
+  rows: [{
+    country: "China",
+    c: "Transition from tea to coffee; preference for soft/floral profiles (match with Colombia).",
+    a: "Import regulations; importance of local alliances and e-commerce.",
+    g: "Great distance; complex logistics but with highly efficient ports.",
+    e: "246% growth in Colombian coffee imports; 1 trillion yuan market."
+  }, {
+    country: "Brazil",
+    c: "Deeply rooted coffee culture (largest producer); young openness to Specialty Coffee.",
+    a: "Mercosur bloc; internal tax complexity for foreign brands.",
+    g: "Regional proximity; simpler land and sea logistics.",
+    e: "Market of USD 11.34B; high local competition but receptive to 'Premium'."
+  }, {
+    country: "Mexico",
+    c: "Shared language and Latin heritage; memorable brand ('When are they coming back?').",
+    a: "Pacific Alliance; requires a trusted local franchise partner.",
+    g: "Proximity to the US and Colombia; established north-south logistics.",
+    e: "Low per capita consumption (0.53 kg) — a 'blue ocean' to cultivate."
+  }]
+}, {
+  title: "Emerging Markets with a Coffee Heritage",
+  rows: [{
+    country: "India",
+    c: "Coffee as a status symbol for Millennials and Gen Z (Bengaluru/Delhi).",
+    a: "Complex bureaucracy; specific regulations for foreign investment.",
+    g: "Very distant; logistics requires intermediate hubs.",
+    e: "CAGR of 13.28%; coffee shop market projected at USD 929M by 2030."
+  }, {
+    country: "Saudi Arabia",
+    c: "Coffee as the center of social life; the 'Coffee Shop' is the third space.",
+    a: "Local regulations; ease of franchise models.",
+    g: "Strategic hub for the MENA region.",
+    e: "High GDP per capita (~$49K); high willingness to spend on premium experiences."
+  }]
+}, {
+  title: "Mature Markets / Specialty",
+  rows: [{
+    country: "South Korea",
+    c: "Mass consumption (405 cups/person); obsession with traceability and craftsmanship.",
+    a: "Free Trade Agreement (FTA) in force with Colombia.",
+    g: "Long distance; Seoul as a hyper-connected center.",
+    e: "Market of USD 13.67B; Colombia is the 5th largest exporter."
+  }, {
+    country: "Germany",
+    c: "Valuation of 'Colombian Coffee' (eAmbrosia) certification and sustainability.",
+    a: "EU regulations; high certification standards.",
+    g: "Europe's logistics hub; port of Hamburg as a key entry point.",
+    e: "Largest specialty market in Europe (21.3% European share)."
+  }, {
+    country: "Netherlands",
+    c: "Sophisticated consumers; preference for fair trade.",
+    a: "Single point of entry for the EU; pro-trade regulations.",
+    g: "Main logistics gateway (Rotterdam); re-export base.",
+    e: "High retail infrastructure (481 active points of sale)."
+  }, {
+    country: "USA",
+    c: "'To-go' culture and personalization; high awareness of sustainability and certifications (Fair Trade/Organic).",
+    a: "FDA regulatory framework; strong FTAs; strict labeling requirements.",
+    g: "Relative proximity; multiple ports of entry on both coasts.",
+    e: "World's largest coffee market by revenue; high penetration of e-commerce and subscriptions."
+  }]
+}, {
+  title: "Experience and Quality Markets (Pilots)",
+  rows: [{
+    country: "Japan",
+    c: "Culture of precision and hand-drip; deep respect for Colombian origin.",
+    a: "Extremely rigorous phytosanitary standards.",
+    g: "Very distant; requires high preservation packaging and logistics.",
+    e: "Mature consumption; 5th destination of Colombian exports (728K bags)."
+  }, {
+    country: "United Kingdom",
+    c: "Valuation of B-Corp companies; strong competition with global chains.",
+    a: "Post-Brexit regulations; very high ethical standards for consumption.",
+    g: "Island with logistics independent of mainland EU.",
+    e: "Specialty growth of 9.64%; focus on the 25–39 year old consumer."
+  }]
+}];
+const verdicts = [["USA", "USD 78,035", "Medium-high", "83.6", "Yes (Florida)", "✅ Enter"], ["Saudi Arabia", "~USD 55,000", "Low", "Medium", "Validated region", "✅ Enter"], ["United Kingdom", "USD 45,936", "Low", "83.6", "Yes (3 stores)", "✅ Enter"], ["Germany", "~USD 48,000", "High", "Medium", "No", "⚠️ No"], ["Mexico", "USD 11,385 🟡", "Low-medium", "72.4 🟡", "Yes (history)", "✅ Enter"], ["South Korea", "~USD 32,000 🟡", "High", "Medium 🟡", "No", "✅ Enter"], ["China", "USD 12,663 🔴", "Very high", "77.9 🟡", "Minimum", "❌ No"]];
+function MarketsPage() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(PageShell, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mx-auto max-w-7xl px-6 pt-20 pb-12", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs uppercase tracking-[0.22em] text-accent", children: "Section 5" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "mt-3 font-display text-5xl text-primary", children: "CAGE Analysis" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-5 max-w-3xl text-lg text-muted-foreground", children: "Cultural, Administrative, Geographic and Economic distance assessed across four market families." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-12 space-y-12", children: cageGroups.map((g) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-2xl text-primary", children: g.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 overflow-x-auto rounded-2xl border border-border shadow-[var(--shadow-soft)]", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full min-w-[900px] text-left text-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { className: "bg-secondary text-secondary-foreground", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Country" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Cultural (C)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Administrative (A)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Geographic (G)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Economic (E)" })
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { className: "divide-y divide-border bg-card", children: g.rows.map((r) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "hover:bg-muted/40", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 font-semibold text-primary", children: r.country }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-foreground/85", children: r.c }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-foreground/85", children: r.a }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-foreground/85", children: r.g }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-foreground/85", children: r.e })
+          ] }, r.country)) })
+        ] }) })
+      ] }, g.title)) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mx-auto max-w-7xl px-6 py-16", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs uppercase tracking-[0.22em] text-accent", children: "Section 5b" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-3 font-display text-4xl text-primary", children: "Comparative Table of Markets" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-8 overflow-x-auto rounded-2xl border border-border shadow-[var(--shadow-soft)]", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full min-w-[800px] text-left text-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { className: "bg-primary text-primary-foreground", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Country" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "GDP per capita" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Barriers to entry" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Ease of Business" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Prior presence" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Verdict" })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { className: "divide-y divide-border bg-card", children: verdicts.map((row) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "hover:bg-muted/40", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 font-semibold text-primary", children: row[0] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3", children: row[1] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3", children: row[2] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3", children: row[3] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3", children: row[4] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 font-semibold", children: row[5] })
+        ] }, row[0])) })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mx-auto max-w-7xl px-6 pb-20", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs uppercase tracking-[0.22em] text-accent", children: "Section 6" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-3 font-display text-4xl text-primary", children: "Detailed Analysis of the 5 Selected Countries" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-8 overflow-x-auto rounded-2xl border border-border shadow-[var(--shadow-soft)]", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full min-w-[700px] text-left text-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { className: "bg-secondary text-secondary-foreground", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Country" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "Entry Strategy" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 font-display", children: "CAGE Factor Determinant" })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { className: "divide-y divide-border bg-card", children: [["USA", "Aggressive Retail and E-commerce (Subscriptions).", "Economic: World's largest market with high willingness to spend on premiums."], ["United Kingdom", "Ethical certifications (B-Corp) and concept stores.", "Cultural: Young consumer (25-39 years old) who values sustainability."], ["South Korea", "Focus on traceability and coffee craftsmanship.", "Administrative: Full utilization of the FTA to reduce tariffs."], ["Saudi Arabia", "'Third Space' model (Large social stores).", "Cultural: Coffee is the center of social and religious life."], ["Mexico", "Master franchises with high-level local partners.", "Geographic/Cultural: Physical proximity and shared language."]].map((row) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "hover:bg-muted/40", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 font-semibold text-primary", children: row[0] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-foreground/85", children: row[1] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-foreground/85", children: row[2] })
+        ] }, row[0])) })
+      ] }) })
+    ] })
+  ] });
+}
+export {
+  MarketsPage as component
+};
