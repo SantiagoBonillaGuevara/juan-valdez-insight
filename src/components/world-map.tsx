@@ -18,6 +18,14 @@ type TopologyObject = {
   transform?: unknown;
 };
 
+type GeoFeature = {
+  type: "Feature";
+  id?: string | number;
+  properties?: Record<string, unknown>;
+  geometry: unknown;
+  rsmKey?: string;
+};
+
 type GeoFeatureCollection = {
   type: "FeatureCollection";
   features: GeoFeature[];
