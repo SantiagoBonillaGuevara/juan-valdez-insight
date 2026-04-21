@@ -115,13 +115,13 @@ function FrameworkPage() {
         {/* Composite */}
         <div className="mt-14 rounded-3xl bg-[var(--gradient-coffee)] p-10 text-cream shadow-[var(--shadow-elegant)]">
           <div className="text-xs uppercase tracking-[0.22em] text-gold">Composite Score</div>
-          <h2 className="mt-2 font-display text-4xl">Prioritized List of 5 Markets</h2>
-          <div className="mt-6 inline-flex items-baseline gap-3 rounded-2xl bg-cream/10 px-6 py-4 font-mono text-lg text-cream">
-            Score = F1 × <span className="text-gold">0.25</span> + F2 × <span className="text-gold">0.45</span> + F3 × <span className="text-gold">0.30</span>
+          <h2 className="mt-2 font-display text-4xl text-cream">Prioritized List of 5 Markets</h2>
+          <div className="mt-6 inline-flex items-baseline gap-3 rounded-2xl border border-cream/30 bg-cream/15 px-6 py-4 font-mono text-lg text-cream backdrop-blur">
+            Score = F1 × <span className="text-gold font-bold">0.25</span> + F2 × <span className="text-gold font-bold">0.45</span> + F3 × <span className="text-gold font-bold">0.30</span>
           </div>
           <div className="mt-6 flex flex-wrap gap-2 text-xs">
             {["Large Economies","Emerging Coffee Markets","Mature / Specialty","Experience + Quality"].map((b) => (
-              <span key={b} className="rounded-full border border-cream/30 bg-cream/5 px-3 py-1.5 text-cream/80">
+              <span key={b} className="rounded-full border border-cream/40 bg-cream/15 px-3 py-1.5 text-cream font-medium">
                 {b}
               </span>
             ))}

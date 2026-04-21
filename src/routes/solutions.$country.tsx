@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-shell";
 import { COUNTRIES, COUNTRY_ORDER, type CountryKey } from "@/data/countries";
-import { COUNTRY_CONTENT } from "@/data/country-content";
+import { COUNTRY_CONTENT, type Bullet, type Section } from "@/data/country-content";
 
 export const Route = createFileRoute("/solutions/$country")({
   loader: ({ params }) => {
@@ -92,7 +92,7 @@ function CountrySolutionPage() {
       {/* Content sections */}
       <section className="mx-auto max-w-4xl px-6 py-16">
         <div className="space-y-12">
-          {content.sections.map((s) => (
+          {content.sections.map((s: Section) => (
             <article key={s.title}>
               <h2 className="font-display text-3xl text-primary">{s.title}</h2>
               {s.intro && (
@@ -100,7 +100,7 @@ function CountrySolutionPage() {
               )}
               {s.bullets && (
                 <ul className="mt-5 space-y-3">
-                  {s.bullets.map((b, i) => (
+                  {s.bullets.map((b: Bullet, i: number) => (
                     <li key={i} className="flex gap-3 rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-soft)]">
                       <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
                       <span className="text-foreground/90">

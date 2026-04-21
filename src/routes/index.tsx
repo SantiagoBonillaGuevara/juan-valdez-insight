@@ -182,9 +182,9 @@ function HomePage() {
                 ["Differentiated Model", "Network of 675+ stores with welcoming, modern environments."],
                 ["Sustainability", "Direct value to coffee growers, climate action, circular economy."],
               ].map(([t, d]) => (
-                <li key={t} className="rounded-2xl border border-cream/15 bg-cream/5 p-5 backdrop-blur">
+                <li key={t} className="rounded-2xl border border-cream/30 bg-cream/15 p-5 backdrop-blur">
                   <div className="font-display text-lg text-gold">{t}</div>
-                  <div className="mt-1 text-sm text-cream/75">{d}</div>
+                  <div className="mt-1 text-sm text-cream">{d}</div>
                 </li>
               ))}
             </ul>
