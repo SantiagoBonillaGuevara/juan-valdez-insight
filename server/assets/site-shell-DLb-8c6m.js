@@ -1,5 +1,5 @@
-import { T as jsxRuntimeExports } from "./worker-entry-D8Od7FdA.js";
-import { L as Link } from "./router-CcyQv-4L.js";
+import { T as jsxRuntimeExports } from "./worker-entry-D1Y2Ppya.js";
+import { L as Link } from "./router-HSVd_pVe.js";
 function SiteHeader() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: "sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto flex max-w-7xl items-center justify-between px-6 py-4", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/", className: "flex items-center gap-3 group", children: [
