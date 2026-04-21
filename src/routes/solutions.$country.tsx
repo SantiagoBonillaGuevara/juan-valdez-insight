@@ -54,7 +54,7 @@ export const Route = createFileRoute("/solutions/$country")({
 });
 
 function CountrySolutionPage() {
-  const { key } = Route.useLoaderData();
+  const { key } = Route.useLoaderData() as { key: CountryKey };
   const c = COUNTRIES[key];
   const content = COUNTRY_CONTENT[key];
 
