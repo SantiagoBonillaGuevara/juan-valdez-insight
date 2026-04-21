@@ -7,9 +7,9 @@ import {
   Marker,
 } from "react-simple-maps";
 import { COUNTRIES, COUNTRY_ORDER, type CountryKey } from "@/data/countries";
-import geoUrl from "@/assets/world-countries-110m.json?url";
+import geoData from "@/assets/world-countries-110m.json";
 
-const GEO_URL = geoUrl;
+const GEO_URL = geoData;
 
 // ISO 3166-1 numeric codes used by world-atlas
 const ISO_TO_KEY: Record<string, CountryKey> = {
