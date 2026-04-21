@@ -65,7 +65,7 @@ function CountrySolutionPage() {
   return (
     <PageShell>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[var(--gradient-coffee)] text-cream">
+      <section className="relative overflow-hidden bg-(image:--gradient-coffee) text-cream">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <Link to="/solutions" className="text-xs uppercase tracking-[0.22em] text-gold hover:underline">
             ← All Solutions

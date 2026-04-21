@@ -113,7 +113,7 @@ function FrameworkPage() {
         </div>
 
         {/* Composite */}
-        <div className="mt-14 rounded-3xl bg-[var(--gradient-coffee)] p-10 text-cream shadow-[var(--shadow-elegant)]">
+        <div className="mt-14 rounded-3xl bg-(image:--gradient-coffee) p-10 text-cream shadow-[var(--shadow-elegant)]">
           <div className="text-xs uppercase tracking-[0.22em] text-gold">Composite Score</div>
           <h2 className="mt-2 font-display text-4xl text-cream">Prioritized List of 5 Markets</h2>
           <div className="mt-6 inline-flex items-baseline gap-3 rounded-2xl border border-cream/30 bg-cream/15 px-6 py-4 font-mono text-lg text-cream backdrop-blur">

@@ -148,7 +148,7 @@ function HomePage() {
 
       {/* POSITIONING */}
       <section
-        className="relative mt-16 overflow-hidden bg-[var(--gradient-coffee)] py-24 text-cream"
+        className="relative mt-16 overflow-hidden bg-(image:--gradient-coffee) py-24 text-cream"
       >
         <img
           src={beansImg}

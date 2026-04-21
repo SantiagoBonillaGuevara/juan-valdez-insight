@@ -60,7 +60,7 @@ function DiagnosisPage() {
           ))}
         </div>
 
-        <div className="mt-14 rounded-3xl border border-border bg-[var(--gradient-warm)] p-8">
+        <div className="mt-14 rounded-3xl border border-border bg-(image:--gradient-warm) p-8">
           <h2 className="font-display text-2xl text-primary">Critical Problems Identified</h2>
           <ul className="mt-4 space-y-3 text-foreground/90">
             <li><strong className="text-secondary">Misalignment:</strong> The social purpose of supporting coffee farmers and financial profitability are not aligned, generating losses in certain international operations.</li>
