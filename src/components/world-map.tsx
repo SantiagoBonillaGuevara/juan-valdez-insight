@@ -39,7 +39,7 @@ export function WorldMap() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden rounded-3xl border border-border bg-[var(--gradient-warm)] p-2 shadow-[var(--shadow-elegant)] sm:p-4">
+    <div className="relative w-full overflow-hidden rounded-3xl border border-border bg-(image:--gradient-warm) p-2 shadow-[var(--shadow-elegant)] sm:p-4">
       <ComposableMap
         projectionConfig={{ scale: 155 }}
         width={980}

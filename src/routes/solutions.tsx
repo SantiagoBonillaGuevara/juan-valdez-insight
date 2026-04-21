@@ -82,7 +82,7 @@ function SolutionsPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <div className="rounded-3xl bg-[var(--gradient-coffee)] p-10 text-cream shadow-[var(--shadow-elegant)]">
+        <div className="rounded-3xl bg-(image:--gradient-coffee) p-10 text-cream shadow-[var(--shadow-elegant)]">
           <div className="text-xs uppercase tracking-[0.22em] text-gold">Section 8 · Conclusion</div>
           <h2 className="mt-3 font-display text-4xl text-cream">A Scientific Selection Framework</h2>
           <p className="mt-5 text-cream">

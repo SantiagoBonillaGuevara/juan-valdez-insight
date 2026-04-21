@@ -29,7 +29,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-border/60 bg-[var(--gradient-coffee)] text-cream">
+    <footer className="mt-24 border-t border-border/60 bg-(image:--gradient-coffee) text-cream">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-3">
         <div>
           <div className="font-display text-2xl text-cream">Juan Valdez</div>
