@@ -1,15 +1,15 @@
 import type { CountryKey } from "./countries";
 
-interface Bullet {
+export interface Bullet {
   bold?: string;
   text: string;
 }
-interface Section {
+export interface Section {
   title: string;
   intro?: string;
   bullets?: Bullet[];
 }
-interface CountryContent {
+export interface CountryContent {
   sections: Section[];
 }
 
