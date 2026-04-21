@@ -1,4 +1,4 @@
-import { r as reactExports, f as functionalUpdate, a as arraysEqual, c as createLRUCache, i as isPromise, b as isRedirect, d as isNotFound, e as invariant, g as createControlledPromise, h as rootRouteId, j as isServer, k as compileDecodeCharMap, t as trimPath, l as rewriteBasepath, m as composeRewrites, p as processRouteTree, n as processRouteMasks, o as resolvePath, q as cleanPath, s as trimPathRight, u as parseHref, v as executeRewriteInput, w as isDangerousProtocol, x as redirect, y as findSingleMatch, z as deepEqual, D as DEFAULT_PROTOCOL_ALLOWLIST, A as interpolatePath, B as nullReplaceEqualDeep, C as replaceEqualDeep, E as last, F as decodePath, G as findFlatMatch, H as findRouteMatch, I as executeRewriteOutput, J as encodePathLikeUrl, K as trimPathLeft, L as joinPaths, M as useRouter, N as dummyMatchContext, O as matchContext, P as requireReactDom, Q as exactPathTest, R as removeTrailingSlash, S as React, T as jsxRuntimeExports, U as isModuleNotFoundError, V as useHydrated, W as escapeHtml, X as getAssetCrossOrigin, Y as resolveManifestAssetLink, Z as Outlet, _ as notFound } from "./worker-entry-D1Y2Ppya.js";
+import { r as reactExports, f as functionalUpdate, a as arraysEqual, c as createLRUCache, i as isPromise, b as isRedirect, d as isNotFound, e as invariant, g as createControlledPromise, h as rootRouteId, j as isServer, k as compileDecodeCharMap, t as trimPath, l as rewriteBasepath, m as composeRewrites, p as processRouteTree, n as processRouteMasks, o as resolvePath, q as cleanPath, s as trimPathRight, u as parseHref, v as executeRewriteInput, w as isDangerousProtocol, x as redirect, y as findSingleMatch, z as deepEqual, D as DEFAULT_PROTOCOL_ALLOWLIST, A as interpolatePath, B as nullReplaceEqualDeep, C as replaceEqualDeep, E as last, F as decodePath, G as findFlatMatch, H as findRouteMatch, I as executeRewriteOutput, J as encodePathLikeUrl, K as trimPathLeft, L as joinPaths, M as useRouter, N as dummyMatchContext, O as matchContext, P as requireReactDom, Q as exactPathTest, R as removeTrailingSlash, S as React, T as jsxRuntimeExports, U as isModuleNotFoundError, V as useHydrated, W as escapeHtml, X as getAssetCrossOrigin, Y as resolveManifestAssetLink, Z as Outlet, _ as notFound } from "./worker-entry-D8Od7FdA.js";
 var reactUse = reactExports.use;
 function useForwardedRef(ref) {
   const innerRef = reactExports.useRef(null);
@@ -2666,7 +2666,7 @@ function renderScripts(router2, scripts, assetScripts) {
     key: `tsr-scripts-${asset.tag}-${i}`
   })) });
 }
-const appCss = "/juan-valdez-insight/assets/styles-BjguG9ox.css";
+const appCss = "https://santiagobonillaguevara.github.io/juan-valdez-insight/assets/styles-BjguG9ox.css";
 function NotFoundComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-7xl font-bold text-foreground", children: "404" }),
@@ -2726,7 +2726,7 @@ function RootShell({ children }) {
 function RootComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {});
 }
-const $$splitComponentImporter$5 = () => import("./markets-D-hK6yho.js");
+const $$splitComponentImporter$5 = () => import("./markets-C7uLqJmp.js");
 const Route$5 = createFileRoute("/markets")({
   head: () => ({
     meta: [{
@@ -2744,7 +2744,7 @@ const Route$5 = createFileRoute("/markets")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-const $$splitComponentImporter$4 = () => import("./framework-BvLyn5Rm.js");
+const $$splitComponentImporter$4 = () => import("./framework-BqQ58qPn.js");
 const Route$4 = createFileRoute("/framework")({
   head: () => ({
     meta: [{
@@ -2762,7 +2762,7 @@ const Route$4 = createFileRoute("/framework")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-const $$splitComponentImporter$3 = () => import("./diagnosis-B1LDknOu.js");
+const $$splitComponentImporter$3 = () => import("./diagnosis-grPUHRSS.js");
 const Route$3 = createFileRoute("/diagnosis")({
   head: () => ({
     meta: [{
@@ -2780,7 +2780,7 @@ const Route$3 = createFileRoute("/diagnosis")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./index-C77dHYSP.js");
+const $$splitComponentImporter$2 = () => import("./index-DAWm1qdu.js");
 const Route$2 = createFileRoute("/")({
   head: () => ({
     meta: [{
@@ -2798,7 +2798,7 @@ const Route$2 = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./solutions.index-C97k41US.js");
+const $$splitComponentImporter$1 = () => import("./solutions.index-CRUyxAX0.js");
 const Route$1 = createFileRoute("/solutions/")({
   head: () => ({
     meta: [{
@@ -2879,9 +2879,9 @@ const COUNTRIES = {
   }
 };
 const COUNTRY_ORDER = ["usa", "uk", "korea", "saudi", "mexico"];
-const $$splitErrorComponentImporter = () => import("./solutions._country-DO_a0Idx.js");
-const $$splitNotFoundComponentImporter = () => import("./solutions._country-BCKYvujC.js");
-const $$splitComponentImporter = () => import("./solutions._country-5LMB5FL7.js");
+const $$splitErrorComponentImporter = () => import("./solutions._country-cm06gN3w.js");
+const $$splitNotFoundComponentImporter = () => import("./solutions._country-mgO8fI5a.js");
+const $$splitComponentImporter = () => import("./solutions._country-RjpNelFO.js");
 const Route2 = createFileRoute("/solutions/$country")({
   loader: ({
     params

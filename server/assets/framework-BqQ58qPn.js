@@ -1,10 +1,10 @@
-import { T as jsxRuntimeExports } from "./worker-entry-D1Y2Ppya.js";
-import { P as PageShell } from "./site-shell-DLb-8c6m.js";
+import { T as jsxRuntimeExports } from "./worker-entry-D8Od7FdA.js";
+import { P as PageShell } from "./site-shell-DSYpd1MZ.js";
 import "node:events";
 import "node:async_hooks";
 import "node:stream/web";
 import "node:stream";
-import "./router-HSVd_pVe.js";
+import "./router-CcyQv-4L.js";
 function FrameworkPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(PageShell, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mx-auto max-w-6xl px-6 pt-20 pb-16", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs uppercase tracking-[0.22em] text-accent", children: "Section 4" }),

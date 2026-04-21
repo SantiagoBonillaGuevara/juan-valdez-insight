@@ -1,13 +1,13 @@
-import { T as jsxRuntimeExports } from "./worker-entry-D1Y2Ppya.js";
-import { L as Link, C as COUNTRY_ORDER, a as COUNTRIES } from "./router-HSVd_pVe.js";
-import { P as PageShell } from "./site-shell-DLb-8c6m.js";
-import { W as WorldMap } from "./world-map-B1qUJ6F2.js";
+import { T as jsxRuntimeExports } from "./worker-entry-D8Od7FdA.js";
+import { L as Link, C as COUNTRY_ORDER, a as COUNTRIES } from "./router-CcyQv-4L.js";
+import { P as PageShell } from "./site-shell-DSYpd1MZ.js";
+import { W as WorldMap } from "./world-map-BCWu8GA8.js";
 import "node:events";
 import "node:async_hooks";
 import "node:stream/web";
 import "node:stream";
-const heroImg = "/juan-valdez-insight/assets/hero-coffee-DrIvG97x.jpg";
-const beansImg = "/juan-valdez-insight/assets/coffee-beans-g86kmWrq.jpg";
+const heroImg = "https://santiagobonillaguevara.github.io/juan-valdez-insight/assets/hero-coffee-DrIvG97x.jpg";
+const beansImg = "https://santiagobonillaguevara.github.io/juan-valdez-insight/assets/coffee-beans-g86kmWrq.jpg";
 function HomePage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(PageShell, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative isolate overflow-hidden", children: [
