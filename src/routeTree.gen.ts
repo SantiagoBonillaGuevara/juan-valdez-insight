@@ -9,38 +9,134 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as MarketsRouteImport } from './routes/markets'
+import { Route as FrameworkRouteImport } from './routes/framework'
+import { Route as DiagnosisRouteImport } from './routes/diagnosis'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsCountryRouteImport } from './routes/solutions.$country'
 
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketsRoute = MarketsRouteImport.update({
+  id: '/markets',
+  path: '/markets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrameworkRoute = FrameworkRouteImport.update({
+  id: '/framework',
+  path: '/framework',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiagnosisRoute = DiagnosisRouteImport.update({
+  id: '/diagnosis',
+  path: '/diagnosis',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsCountryRoute = SolutionsCountryRouteImport.update({
+  id: '/$country',
+  path: '/$country',
+  getParentRoute: () => SolutionsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/diagnosis': typeof DiagnosisRoute
+  '/framework': typeof FrameworkRoute
+  '/markets': typeof MarketsRoute
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/solutions/$country': typeof SolutionsCountryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/diagnosis': typeof DiagnosisRoute
+  '/framework': typeof FrameworkRoute
+  '/markets': typeof MarketsRoute
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/solutions/$country': typeof SolutionsCountryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/diagnosis': typeof DiagnosisRoute
+  '/framework': typeof FrameworkRoute
+  '/markets': typeof MarketsRoute
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/solutions/$country': typeof SolutionsCountryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/diagnosis'
+    | '/framework'
+    | '/markets'
+    | '/solutions'
+    | '/solutions/$country'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/diagnosis'
+    | '/framework'
+    | '/markets'
+    | '/solutions'
+    | '/solutions/$country'
+  id:
+    | '__root__'
+    | '/'
+    | '/diagnosis'
+    | '/framework'
+    | '/markets'
+    | '/solutions'
+    | '/solutions/$country'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DiagnosisRoute: typeof DiagnosisRoute
+  FrameworkRoute: typeof FrameworkRoute
+  MarketsRoute: typeof MarketsRoute
+  SolutionsRoute: typeof SolutionsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/markets': {
+      id: '/markets'
+      path: '/markets'
+      fullPath: '/markets'
+      preLoaderRoute: typeof MarketsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/framework': {
+      id: '/framework'
+      path: '/framework'
+      fullPath: '/framework'
+      preLoaderRoute: typeof FrameworkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagnosis': {
+      id: '/diagnosis'
+      path: '/diagnosis'
+      fullPath: '/diagnosis'
+      preLoaderRoute: typeof DiagnosisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +144,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/$country': {
+      id: '/solutions/$country'
+      path: '/$country'
+      fullPath: '/solutions/$country'
+      preLoaderRoute: typeof SolutionsCountryRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
   }
 }
 
+interface SolutionsRouteChildren {
+  SolutionsCountryRoute: typeof SolutionsCountryRoute
+}
+
+const SolutionsRouteChildren: SolutionsRouteChildren = {
+  SolutionsCountryRoute: SolutionsCountryRoute,
+}
+
+const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
+  SolutionsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DiagnosisRoute: DiagnosisRoute,
+  FrameworkRoute: FrameworkRoute,
+  MarketsRoute: MarketsRoute,
+  SolutionsRoute: SolutionsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
