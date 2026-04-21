@@ -165,10 +165,10 @@ function HomePage() {
               <div className="text-xs uppercase tracking-[0.22em] text-gold">
                 Brand Positioning
               </div>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl">
+              <h2 className="mt-3 font-display text-4xl text-cream md:text-5xl">
                 The leading premium Colombian coffee brand
               </h2>
-              <p className="mt-5 text-cream/80">
+              <p className="mt-5 text-cream/85">
                 Juan Valdez highlights its origin, quality, and the support of
                 more than <strong className="text-gold">540,000 coffee-growing families</strong>,
                 offering an authentic experience that connects coffee tradition
