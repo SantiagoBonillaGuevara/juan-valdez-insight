@@ -18,12 +18,9 @@ type TopologyObject = {
   transform?: unknown;
 };
 
-type GeoFeature = {
-  type: "Feature";
-  id?: string | number;
-  properties?: Record<string, unknown>;
-  geometry: unknown;
-  rsmKey?: string;
+type GeoFeatureCollection = {
+  type: "FeatureCollection";
+  features: GeoFeature[];
 };
 
 const ISO_TO_KEY: Record<string, CountryKey> = {
@@ -46,11 +43,11 @@ export function WorldMap() {
   const [hovered, setHovered] = useState<CountryKey | null>(null);
   const navigate = useNavigate();
 
-  const geographies = useMemo(() => {
+  const geographiesData = useMemo(() => {
     const topology = worldTopology as TopologyObject;
     const countriesObject = topology.objects.countries as Parameters<typeof feature>[1];
     const fc = feature(topology as Parameters<typeof feature>[0], countriesObject);
-    return fc.type === "FeatureCollection" ? (fc.features as GeoFeature[]) : [];
+    return (fc.type === "FeatureCollection" ? fc : { type: "FeatureCollection", features: [] }) as GeoFeatureCollection;
   }, []);
 
   const go = (key: CountryKey) => {
@@ -68,7 +65,7 @@ export function WorldMap() {
       >
         <rect width={980} height={500} fill="oklch(0.93 0.03 220)" />
 
-        <Geographies geography={geographies}>
+        <Geographies geography={geographiesData}>
           {({ geographies: mapGeographies }) =>
             mapGeographies.map((geo) => {
               const iso = String(geo.id ?? "");
