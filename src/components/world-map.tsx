@@ -1,17 +1,31 @@
+import { useMemo, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
 } from "react-simple-maps";
+import { feature } from "topojson-client";
 import { COUNTRIES, COUNTRY_ORDER, type CountryKey } from "@/data/countries";
-import geoData from "@/assets/world-countries-110m.json";
+import worldTopology from "@/assets/world-countries-110m.json";
 
-const GEO_URL = geoData;
+type TopologyObject = {
+  type: string;
+  objects: Record<string, unknown>;
+  arcs: unknown[];
+  bbox?: number[];
+  transform?: unknown;
+};
 
-// ISO 3166-1 numeric codes used by world-atlas
+type GeoFeature = {
+  type: "Feature";
+  id?: string | number;
+  properties?: Record<string, unknown>;
+  geometry: unknown;
+  rsmKey?: string;
+};
+
 const ISO_TO_KEY: Record<string, CountryKey> = {
   "840": "usa",
   "826": "uk",
@@ -20,7 +34,6 @@ const ISO_TO_KEY: Record<string, CountryKey> = {
   "484": "mexico",
 };
 
-// Marker coordinates [lon, lat]
 const MARKERS: Record<CountryKey, [number, number]> = {
   usa: [-98, 39],
   uk: [-1.5, 53],
@@ -33,6 +46,13 @@ export function WorldMap() {
   const [hovered, setHovered] = useState<CountryKey | null>(null);
   const navigate = useNavigate();
 
+  const geographies = useMemo(() => {
+    const topology = worldTopology as TopologyObject;
+    const countriesObject = topology.objects.countries as Parameters<typeof feature>[1];
+    const fc = feature(topology as Parameters<typeof feature>[0], countriesObject);
+    return fc.type === "FeatureCollection" ? (fc.features as GeoFeature[]) : [];
+  }, []);
+
   const go = (key: CountryKey) => {
     navigate({ to: "/solutions/$country", params: { country: key } });
   };
@@ -40,50 +60,44 @@ export function WorldMap() {
   return (
     <div className="relative w-full overflow-hidden rounded-3xl border border-border bg-(image:--gradient-warm) p-2 shadow-[var(--shadow-elegant)] sm:p-4">
       <ComposableMap
-        projectionConfig={{ scale: 155 }}
+        projection="geoEqualEarth"
+        projectionConfig={{ scale: 160 }}
         width={980}
         height={500}
         style={{ width: "100%", height: "auto" }}
       >
-        {/* Ocean */}
         <rect width={980} height={500} fill="oklch(0.93 0.03 220)" />
 
-        <Geographies geography={GEO_URL}>
-          {({ geographies }) =>
-            geographies.map((geo) => {
-              const iso = String(geo.id);
+        <Geographies geography={geographies}>
+          {({ geographies: mapGeographies }) =>
+            mapGeographies.map((geo) => {
+              const iso = String(geo.id ?? "");
               const key = ISO_TO_KEY[iso];
               const isTarget = !!key;
-              const isHover = key && hovered === key;
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
                   onClick={() => key && go(key)}
                   onMouseEnter={() => key && setHovered(key)}
-                  onMouseLeave={() => key && setHovered(null)}
+                  onMouseLeave={() => setHovered(null)}
                   style={{
                     default: {
-                      fill: isTarget
-                        ? "oklch(0.52 0.18 30)"
-                        : "oklch(0.86 0.02 75)",
-                      stroke: "oklch(0.65 0.02 75)",
-                      strokeWidth: 0.4,
+                      fill: isTarget ? "oklch(0.52 0.18 30)" : "oklch(0.85 0.02 75)",
+                      stroke: "oklch(0.66 0.02 70)",
+                      strokeWidth: 0.6,
                       outline: "none",
                       cursor: isTarget ? "pointer" : "default",
-                      transition: "fill 0.2s ease",
                     },
                     hover: {
-                      fill: isTarget
-                        ? "oklch(0.32 0.06 150)"
-                        : "oklch(0.86 0.02 75)",
+                      fill: isTarget ? "oklch(0.32 0.06 150)" : "oklch(0.82 0.02 75)",
                       stroke: "oklch(0.32 0.06 150)",
-                      strokeWidth: isTarget ? 0.8 : 0.4,
+                      strokeWidth: isTarget ? 0.9 : 0.6,
                       outline: "none",
                       cursor: isTarget ? "pointer" : "default",
                     },
                     pressed: {
-                      fill: "oklch(0.32 0.06 150)",
+                      fill: isTarget ? "oklch(0.32 0.06 150)" : "oklch(0.82 0.02 75)",
                       outline: "none",
                     },
                   }}
@@ -131,7 +145,6 @@ export function WorldMap() {
         })}
       </ComposableMap>
 
-      {/* Hover info card */}
       <div
         className="pointer-events-none absolute bottom-4 left-4 right-4 max-w-md rounded-2xl border border-border bg-card/95 p-5 shadow-[var(--shadow-soft)] backdrop-blur transition-opacity sm:bottom-6 sm:left-6 sm:right-auto"
         style={{ opacity: hovered ? 1 : 0.6 }}
@@ -160,8 +173,7 @@ export function WorldMap() {
               5 Priority Markets · 2030
             </div>
             <div className="mt-1 text-sm text-muted-foreground">
-              Hover or tap any highlighted country (in red) to explore its
-              tailored expansion solution.
+              Hover or tap any highlighted country to explore its tailored expansion solution.
             </div>
           </>
         )}
